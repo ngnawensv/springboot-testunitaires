@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -50,6 +51,7 @@ public class EmployeControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].firstName", is(alex.getFirstName())));
+                .andExpect(jsonPath("$[0].firstName", is(alex.getFirstName())))
+                .andDo(MockMvcResultHandlers.print());
     }
 }
