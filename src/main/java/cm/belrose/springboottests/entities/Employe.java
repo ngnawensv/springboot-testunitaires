@@ -16,6 +16,11 @@ public class Employe {
     public Employe() {
     }
 
+
+    public Employe(String firstName) {
+        this.firstName = firstName;
+    }
+
     public Employe(String firstName, String lastName, String emailId) {
         this.firstName = firstName;
         this.lastName = lastName;
