@@ -13,6 +13,9 @@ public class EmployeServiceImpl implements EmployeService {
     @Autowired
     private EmployeDao employeDao;
 
+    public EmployeServiceImpl() {
+    }
+
     @Override
     public Employe findByFirstName(String username) {
         return employeDao.findByFirstName(username);

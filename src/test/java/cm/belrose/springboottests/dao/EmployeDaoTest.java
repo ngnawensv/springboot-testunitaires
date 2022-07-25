@@ -65,7 +65,7 @@ public class EmployeDaoTest {
         // when
         Employe employeFound = employeDao.findByFirstName(employeGive.getFirstName());
         // then
-        assertEquals(employeGive.getFirstName(),employeGive.getFirstName());
+        assertEquals(employeGive.getFirstName(),employeFound.getFirstName());
         log.info("success Test");
     }
 
@@ -73,7 +73,10 @@ public class EmployeDaoTest {
     public void testSaveEmploye() {
         employeDao.save(employeNew);
         Employe employeDB = employeDao.findByFirstName("admin");
+        //J'attends que employeNew soit non null
         assertNotNull(employeNew);
+        //J'attends que employeDB.getFirstName() soit egal à employeNew.getFirstName() ou bien
+        //J'exige que employeDB.getFirstName() retuourne  employeNew.getFirstName()
         assertEquals(employeDB.getFirstName(), employeNew.getFirstName());
         assertEquals(employeDB.getLastName(), employeNew.getLastName());
     }
